@@ -29,13 +29,20 @@ def insert_salle(self,salle):
 
  
 
-def update_salle(self,salle):
+def update_salle(self, salle ):
         conn= self.get_connection()
         cursor=conn.cursor ()
         cursor.execute(
          "UPDATE  salle SET description= %s,categorie=%s,capacite=%s WHERE  code=%s "  ,
-        (salle.description,salle.categorie,salle.capacite,salle.code)
+        (salle.description,salle.categorie,salle.capacite, salle.code)
         )
         conn.commit()
         conn.close()
 
+def delete_salle(self,code):
+      def delete_salle(self, code):
+        conn=self.get_connection()
+        cursor =conn.cursor ()
+        cursor.execute("DELETE  FROM salle  WHERE code=%s",(code,))
+        conn.commit()
+        conn.close()
