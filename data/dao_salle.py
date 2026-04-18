@@ -14,3 +14,20 @@ class Datasalle :
                                             password="Python2026",
                                             database="db_salles"
                                         ))    
+
+
+
+def insert_salle(self,salle):
+    conn=self.get_connection()
+    cursor = conn.cursor()
+    cursor.execute(
+        "INSERT INTO salle VALUES (%s,%s,%s,%s)",
+        (salle.code,salle.description,salle.categorie,salle.capacite)
+    )
+    conn.commit()
+    conn.close()
+
+
+    
+
+
