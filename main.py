@@ -2,7 +2,7 @@ from data.dao_salle import DataSalle
 from models.salle import Salle 
 
 
-data=DataSalle()
+''' data=DataSalle()
 try :
     conn =data.get_connection()
     print("Connexion reussi avec succes ")
@@ -58,7 +58,7 @@ else:
 print("\n Liste des salles")     
 salles = data.get_salles()
 for salle in salles:
-    salle.afficher_infos() 
+    salle.afficher_infos() '''
 
 
 

@@ -35,5 +35,8 @@ class ServiceSalle :
     def rechercher_salle(self,code):
         self.dao_salle.get_salle(code)
         return True , "la salle {code} a ete retrouvee avec success. "
+    
+    def recuperer_salles(self,code):
+        return self.dao_salle.get_salles()
             
     
