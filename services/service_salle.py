@@ -26,3 +26,8 @@ class ServiceSalle :
             return True
         else:
             return "Erreur"
+
+
+    def supprimer_salle(self,code):
+        self.dao_salle.delete_salle(code)
+    
