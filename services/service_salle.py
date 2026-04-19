@@ -30,4 +30,10 @@ class ServiceSalle :
 
     def supprimer_salle(self,code):
         self.dao_salle.delete_salle(code)
+        
+
+    def rechercher_salle(self,code):
+        self.dao_salle.get_salle(code)
+        return True , "la salle {code} a ete retrouvee avec success. "
+            
     
