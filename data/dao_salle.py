@@ -55,8 +55,25 @@ def get_salle(self,code):
     row = cursor.fetchone()
     conn.close()
     if row:
-        return Salle(*row) 
+        return Salle(*row ) 
 
     else:
         return None      
  
+
+
+def get_salles(self):
+    conn=self.get_connection()
+    cursor=conn.cursor()
+    cursor.execute("select * from salle")
+    rows=cursor.fetchall()               
+    conn.close()
+    salles=[]
+    for r in rows:
+        code=r[0]
+        description=r[1]
+        categorie=r[2]
+        capacite=r[3]
+        salle =Salle(r[0],r[1],r[2],r[3],r[4])
+        salles.append(salle)
+    return salles    
