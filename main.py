@@ -1,5 +1,7 @@
 from data.dao_salle import DataSalle 
 from models.salle import Salle 
+from services.service_salle import ServiceSalle
+
 
 
 ''' data=DataSalle()
@@ -60,15 +62,48 @@ salles = data.get_salles()
 for salle in salles:
     salle.afficher_infos() '''
 
+service=ServiceSalle()
+
+print("\n 1. Liste des salles")
+salles=service.recuperer_salles()
+if salles:
+    for s in salles:
+        s.afficher_infos()
+else:
+    print("Aucune salle disponible dans la base de donnees")        
+
+
+#s5 =Salle("B211I","Salle de francais","classe ",100)
+s7 =Salle("S232A","Salle de gymnastique","sport",105)
+s7 =Salle("S233A","Salle de gymnastique 2","sport",200)
+
+#service.ajouter_salle(s7)
+
+print("\n")
+print("\n 2. Modification de la capacite de la (172--->110) salle de gymnastique ayant le code S232A ")
+salle= service.rechercher_salle("S232A")
+if salle:
+    salle.description= "Salle de gymnastique"
+    salle.categorie="sport"
+    salle.capacite=110
+    service.modifier_salle(salle)
+
+else:
+    print("la salle ayant le code S232A n'existe pas")
 
 
 
+print("\n 3. Suppresion de la salle ayant le code S212A")
+service.supprimer_salle("B211I")
 
 
 
-
-
-
+print("\n 4. Recherche de la salle S232A")
+recherche=service.rechercher_salle("S232A")
+if recherche:
+    print (f"la salle S232A a ete retrouvee avec success. ")
+else:
+    print("Cette salle n'existe pas ")
 
 
 
