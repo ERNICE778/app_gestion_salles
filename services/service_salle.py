@@ -9,10 +9,20 @@ class ServiceSalle :
         if not salle.code  or  not salle.description or not salle.categorie or not salle.capacite :
             print("Attention: toutes les donnees doivent etre presentes")
             return False
-        if   salle.capacite >= 1:
+        if  int (salle.capacite) >= 1:
             print("condition de la capacite verifiee")
             self.dao_salle.insert_salle(salle)
             return True
         else:
             print("la capacite doit etre au moins de 1")
             return False
+        
+    def modifier_salle(self,salle):
+        if not salle.code  or  not salle.description or not salle.categorie or not salle.capacite :
+            print("Attention: toutes les donnees doivent etre presentes")
+            return False
+        if int(salle.capacite) <1:
+            self.dao_salle.update_salle(salle)
+            return True
+        else:
+            return "Erreur"
