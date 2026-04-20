@@ -105,7 +105,11 @@ class ViewSalle(ctk.CTk):
         code=self.entry_code.get()
         salle=self.service_salle.rechercher_salle(code)
            
-        
+    def lister_salles(self):
+        self.treeList.delete(*self.treeList.get_children())
+        liste=self.service_salle.recuperer_salles()
+        for s in liste:
+            self.treeList.insert("", "end", values=(s.code, s.description, s.categorie, s.capacite)) 
 
 
 
