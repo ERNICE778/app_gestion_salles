@@ -73,11 +73,11 @@ else:
     print("Aucune salle disponible dans la base de donnees")        
 
 
-#s5 =Salle("B211I","Salle de francais","classe ",100)
+s5 =Salle("B211I","Salle de francais","classe ",100)
 s7 =Salle("S232A","Salle de gymnastique","sport",105)
-s7 =Salle("S233A","Salle de gymnastique 2","sport",200)
-
-#service.ajouter_salle(s7)
+s7=Salle("S233A","Salle de gymnastique 2","sport",200)
+print ("\n2.Ajout d une salle")
+service.ajouter_salle(s7)
 
 print("\n")
 print("\n 2. Modification de la capacite de la (172--->110) salle de gymnastique ayant le code S232A ")
