@@ -6,7 +6,7 @@ class ServiceSalle :
         self.dao_salle =DataSalle()
 
     def ajouter_salle(self , salle):
-        if not salle.code  or  not salle.description or not salle.categorie or not salle.capacite :
+        if (not salle.code  or  not salle.description or not salle.categorie or not salle.capacite ):
             print("Attention: toutes les donnees doivent etre presentes")
             return False
         if  int (salle.capacite) >= 1:
@@ -34,7 +34,14 @@ class ServiceSalle :
         
 
     def rechercher_salle(self,code):
-        return self.dao_salle.get_salle(code)
+        if code:
+            salle= self.dao_salle.get_salle(code)
+            if salle:
+                print(f"la salle ayant le CODE  {code} a ete trouve ")
+            else:
+                print("cette sale n'existe pas ")  
+                return None  
+        
     
     def recuperer_salles(self):
         return self.dao_salle.get_salles()

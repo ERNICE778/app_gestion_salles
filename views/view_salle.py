@@ -83,6 +83,7 @@ class ViewSalle(ctk.CTk):
     def rechercher_salle(self):
         code=self.entry_code.get()
         salle=self.service_salle.rechercher_salle(code)
+           
         
 
 
