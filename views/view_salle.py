@@ -75,6 +75,8 @@ class ViewSalle(ctk.CTk):
         self.btn_rechercher =ctk.CTkButton(self.frame_Actions, text="Rechercher",command=self.rechercher_salle)
         self.btn_rechercher.grid(row=0,column=3,padx=10)
 
+        self.lister_salles()
+
 
     def ajouter_salle(self):
         code=self.entry_code.get()
@@ -85,6 +87,8 @@ class ViewSalle(ctk.CTk):
         Ajout_salle=Salle(code,desc,cat,cap)
         self.service_salle.ajouter_salle(Ajout_salle)
 
+        self.lister_salles()
+        
     def modifier_salle(self):
         code=self.entry_code.get()
         desc=self.entry_desc.get()
@@ -93,17 +97,20 @@ class ViewSalle(ctk.CTk):
 
         salle=Salle(code,desc,cat,cap)
         self.service_salle.modifier_salle( salle)
+        self.lister_salles()
 
 
 
     def supprimer_salle(self):
         code=self.entry_code.get()
         self.service_salle.supprimer_salle(code)
+        self.lister_salles()
 
 
     def rechercher_salle(self):
         code=self.entry_code.get()
         salle=self.service_salle.rechercher_salle(code)
+        
            
     def lister_salles(self):
         self.treeList.delete(*self.treeList.get_children())
@@ -112,5 +119,5 @@ class ViewSalle(ctk.CTk):
             self.treeList.insert("", "end", values=(s.code, s.description, s.categorie, s.capacite)) 
 
 
-
+   
 
