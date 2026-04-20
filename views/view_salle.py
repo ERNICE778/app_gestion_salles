@@ -45,7 +45,7 @@ class ViewSalle(ctk.CTk):
         self.label_desc=ctk.CTkLabel(self.frame_InfoSalle,text="Description:")
         self.label_desc.grid(row=1,column=0,pady=5)
         self.entry_desc=ctk.CTkEntry(self.frame_InfoSalle)
-        self.entry_desc.grid(row=1,column=1,pady=5)
+        self.entry_desc.grid(row=1,column=1,pady=5) 
 
 
         self.label_cat= ctk.CTkLabel(self.frame_InfoSalle,text="Categorie:")
@@ -117,6 +117,10 @@ class ViewSalle(ctk.CTk):
         liste=self.service_salle.recuperer_salles()
         for s in liste:
             self.treeList.insert("", "end", values=(s.code, s.description, s.categorie, s.capacite)) 
+
+    
+    
+        
 
 
    
