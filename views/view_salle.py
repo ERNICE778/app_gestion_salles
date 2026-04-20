@@ -2,6 +2,7 @@ from data.dao_salle import DataSalle
 from models.salle import Salle 
 from services.service_salle import ServiceSalle
 import customtkinter as ctk 
+from tkinter import ttk
 
 
 class ViewSalle(ctk.CTk):
@@ -11,6 +12,26 @@ class ViewSalle(ctk.CTk):
         self.geometry("900x1000")
         self.service_salle=ServiceSalle()
 
+
+
+        #Cadre Liste des salles
+        self.cadreList = ctk.CTkFrame(self, corner_radius=10, width=400)
+        self.cadreList.pack(pady=10, padx=10)
+        self.treeList = ttk.Treeview(self.cadreList, columns=("code", "description", "categorie",
+"capacite"), show="headings")
+        
+     # En-têtes
+   
+        self.treeList.heading("code", text="CODE")
+        self.treeList.heading("description", text="Description")
+        self.treeList.heading("categorie", text="Catégorie")
+        self.treeList.heading("capacite", text="Capacité")
+# Largeur des colonnes
+        self.treeList.column("code", width=50)
+        self.treeList.column("description", width=150)
+        self.treeList.column("categorie", width=100)
+        self.treeList.column("capacite",width=100)
+        self.treeList.pack(expand=True, fill="both", padx=10, pady=10)
 
         self.frame_InfoSalle =  ctk.CTkFrame(self)
         self.frame_InfoSalle.pack(pady=10)
@@ -85,6 +106,7 @@ class ViewSalle(ctk.CTk):
         salle=self.service_salle.rechercher_salle(code)
            
         
+
 
 
 
