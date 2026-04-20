@@ -6,14 +6,15 @@ from models.salle import Salle
 
 class DataSalle :
     def get_connection(self):
-        with open("data/config.json" , "r") as f :
+        with open("data/config.json" , "r",encoding="utf-8") as f :
             config=json.load(f) 
         return mysql.connector.connect(
-                                            host="localhost",
-                                            user="user_python",
-                                            password="Python2026",
-                                            database="db_salles"
-                                        )   
+            host=config["host"],
+            user=config["user"],
+            password=config["password"],
+            database=config["database"]
+                                            
+        )
 
 
 
