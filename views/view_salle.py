@@ -10,4 +10,30 @@ class ViewSalle(ctk.CTk):
         self.title("GESTION DES SALLES")
         self.geometry("900*1000")
         self.service_salle=ServiceSalle()
-    
+
+
+        self.frame_InfoSalle =  ctk.CTkFrame(self)
+        self.frame_InfoSalle.pack(pady=10)
+
+        self.label_code=ctk.CTkLabel(self.frame_InfoSalle ,text ="Code:")
+        self.label_code.grid(row =0,column=0,pady=5)
+        self.entry_code = ctk.CTkEntry(self.frame_InfoSalle)
+        self.entry_code.grid(row=0, column=1)
+
+
+        self.label_desc=ctk.CTkLabel(self.frame_InfoSalle,text="Description:")
+        self.label_desc.grid(row=1,column=0,pady=5)
+        self.entry_desc=ctk.CTkEntry(self.frame_InfoSalle)
+        self.entry_desc.grid(row=1,column=1,pady=5)
+
+
+        self.label_cat= ctk.CTkLabel(self.frame_InfoSalle,text="Categorie:")
+        self.label_cat.grid(row=2,column=0,pady=5)
+        self.entry_cat= ctk.CTkEntry(self.frame_InfoSalle)
+        self.entry_cat.grid(row=2, column=1, pady=5) 
+
+
+        self.label_cap =ctk.CTkLabel(self.frame_InfoSalle,text="Capacite:")
+        self.label_cap.grid(row=3,column=0,  pady=5)
+        self.entry_cap =ctk.CTkEntry(self.frame_InfoSalle)
+        self.entry_cap.grid(row=3,column=1, pady=5)
