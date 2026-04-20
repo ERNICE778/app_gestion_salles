@@ -61,7 +61,7 @@ print("\n Liste des salles")
 salles = data.get_salles()
 for salle in salles:
     salle.afficher_infos() '''
-
+'''
 service=ServiceSalle()
 
 print("\n 1. Liste des salles")
@@ -103,7 +103,10 @@ recherche=service.rechercher_salle("S232A")
 if recherche:
     print (f"la salle S232A a ete retrouvee avec success. ")
 else:
-    print("Cette salle n'existe pas ")
+    print("Cette salle n'existe pas ") '''
 
 
 
+from views.view_salle import ViewSalle 
+app=ViewSalle()
+app.mainloop
