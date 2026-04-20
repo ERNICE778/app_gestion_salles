@@ -8,7 +8,7 @@ class ViewSalle(ctk.CTk):
     def __init__(self):
         super().__init__()
         self.title("GESTION DES SALLES")
-        self.geometry("900*1000")
+        self.geometry("900x1000")
         self.service_salle=ServiceSalle()
 
 
@@ -42,7 +42,7 @@ class ViewSalle(ctk.CTk):
 
         self.frame_Actions=ctk.CTkFrame(self)
         self.frame_Actions.pack(pady=10)
-        self.btn_ajouter = ctk.CTkButton(self.frame_Actions, text="Ajouter")
+        self.btn_ajouter = ctk.CTkButton(self.frame_Actions, text="Ajouter",command=self.ajouter_salle)
         self.btn_ajouter.grid(row=0,column=0, padx=10)
 
         self.btn_modifier =ctk.CTkButton(self.frame_Actions, text="Modifier")
@@ -53,3 +53,21 @@ class ViewSalle(ctk.CTk):
 
         self.btn_rechercher =ctk.CTkButton(self.frame_Actions, text="Rechercher")
         self.btn_rechercher.grid(row=0,column=3,padx=10)
+
+
+    def ajouter_salle(self):
+        code=self.entry_code.get()
+        desc=self.entry_desc.get()
+        cat= self.entry_cat.get()
+        cap=self.entry_cap.get()
+
+        Ajout_salle=Salle(code,desc,cat,cap)
+        self.service_salle.ajouter_salle(Ajout_salle)
+
+
+
+        
+        
+
+        
+
